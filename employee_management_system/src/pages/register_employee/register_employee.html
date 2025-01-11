@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="register_employee.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <main>
+            <div class="card" data-aos="fade-up">
+                <!-- Header -->
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1 class="h3 mb-0">Employee Registration</h1>
+                            <p class="mb-0 text-white-50">Fill in the form below to register a new employee</p>
+                        </div>
+                        <a href="../home_screen/home_screen.html" class="btn btn-light btn-sm">
+                            <i class="bi bi-arrow-left me-2"></i>Back
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="card-body">
+                    <form id="employeeForm" class="row g-3">
+                        <!-- Progress bar -->
+                        <div class="progress mb-4" style="height: 3px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+
+                        <!-- Form sections -->
+                        <div class="row g-4">
+                            <!-- Personal Information -->
+                            <div class="col-12">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-light">
+                                        <h5 class="mb-0">
+                                            <i class="bi bi-person me-2"></i>Employee Information
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row g-3">
+                                            <div class="col-12 mb-4">
+                                                <div class="d-flex flex-column align-items-center">
+                                                    <div class="image-upload-container">
+                                                        <div class="image-preview-wrapper">
+                                                            <img id="imagePreview" src="https://via.placeholder.com/150" alt="Profile Preview" class="profile-image">
+                                                            <div class="image-overlay">
+                                                                <label for="imageUpload" class="upload-label">
+                                                                    <i class="bi bi-camera-fill"></i>
+                                                                    <span>Upload Photo</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <input type="file" class="d-none" id="imageUpload" name="profileImage" accept="image/*">
+                                                    </div>
+                                                    <div class="upload-info mt-3">
+                                                        <small class="text-muted">Allowed JPG, GIF or PNG. Max size of 2MB</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="firstName" name="firstName">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="lastName" name="lastName">
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="form-label">Date of Birth</label>
+                                                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="form-label">Gender</label>
+                                                <select class="form-select" id="gender" name="gender">
+                                                    <option value="">Choose...</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="form-label">Nationality</label>
+                                                <input type="text" class="form-control" id="nationality" name="nationality">
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="form-label">Position</label>
+                                                <input type="text" class="form-control" id="position" name="position">
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="form-label">Department</label>
+                                                <select class="form-select" id="department" name="department">
+                                                    <option value="">Choose...</option>
+                                                    <option>IT</option>
+                                                    <option>HR</option>
+                                                    <option>Finance</option>
+                                                    <option>Marketing</option>
+                                                    <option>Operations</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="col-12">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-light">
+                                        <h5 class="mb-0">
+                                            <i class="bi bi-envelope me-2"></i>Contact Information
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" id="phone" name="phone">
+                                            </div>
+                                            <div class="col-12 form-group">
+                                                <label class="form-label">Address</label>
+                                                <textarea class="form-control" id="address" name="address" rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Emergency Contact -->
+                            <div class="col-12">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-light">
+                                        <h5 class="mb-0">
+                                            <i class="bi bi-people me-2"></i>Emergency Contact
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">Contact Name</label>
+                                                <input type="text" class="form-control" id="emergencyName" name="emergencyName">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">Relationship</label>
+                                                <select class="form-select" id="emergencyRelation" name="emergencyRelation">
+                                                    <option value="">Choose...</option>
+                                                    <option>Spouse</option>
+                                                    <option>Parent</option>
+                                                    <option>Sibling</option>
+                                                    <option>Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">Contact Email</label>
+                                                <input type="email" class="form-control" id="emergencyEmail" name="emergencyEmail">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <label class="form-label">Contact Phone</label>
+                                                <input type="tel" class="form-control" id="emergencyPhone" name="emergencyPhone">
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="sameAddress">
+                                                    <label class="form-check-label" for="sameAddress">
+                                                        Same as Employee Address
+                                                    </label>
+                                                </div>
+                                                <div id="emergencyAddressSection">
+                                                    <label class="form-label">Emergency Contact Address</label>
+                                                    <textarea class="form-control" id="emergencyAddress" name="emergencyAddress" rows="2"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- Submit Button -->
+                        <div class="card-footer bg-white border-0 pt-4">
+                            <div class="d-flex gap-3">
+                                <button type="button" class="btn btn-outline-secondary" id="cancelBtn">
+                                    <i class="bi bi-x-circle me-2"></i>Cancel
+                                </button>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-check-circle me-2"></i>Complete Registration
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add before closing body tag -->
+    <div class="modal fade" id="cancelModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Cancel Registration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-4">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-exclamation-circle text-warning" style="font-size: 3rem;"></i>
+                    </div>
+                    <p class="text-center mb-0">Are you sure you want to cancel? All entered data will be lost.</p>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">No, Continue</button>
+                    <button type="button" class="btn btn-danger" id="confirmCancel">Yes, Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="register_employee.js"></script>
+</body>
+</html>
