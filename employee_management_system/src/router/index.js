@@ -1,7 +1,7 @@
-const PATHS = {
+export const PATHS = {
     NOT_FOUND: '../components/404_not_found/404.html',
-    REGISTER_EMPLOYEE: '/src/pages/register_employee/register-employee.html',
-    HOME: '/src/pages/home_screen/home_screen.html',
+    REGISTER_EMPLOYEE: '/employee_management_system/src/pages/register_employee/register_employee.html',
+    HOME: '/employee_management_system/src/pages/home_screen/home_screen.html',
     LOGIN: '/src/pages/login/login.html'
 };
 

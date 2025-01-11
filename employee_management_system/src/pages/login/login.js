@@ -1,9 +1,15 @@
 import { ErrorMessage } from '../../components/error_message/error_message.js';
+import { PATHS } from '../../router/index.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', initializeLogin);
+
+function initializeLogin() {
     ErrorMessage.getInstance();
+    setupPasswordToggle();
+    setupLoginForm();
+}
 
-    // Password visibility toggle
+function setupPasswordToggle() {
     const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
     const toggleIcon = document.getElementById('toggleIcon');
@@ -14,24 +20,53 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleIcon.classList.toggle('bi-eye');
         toggleIcon.classList.toggle('bi-eye-slash');
     });
+}
 
-    // Form submission
-    document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
-        e.preventDefault();
+function setupLoginForm() {
+    const loginForm = document.getElementById('loginForm');
+    loginForm?.addEventListener('submit', handleLogin);
+}
 
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+function handleLogin(e) {
+    e.preventDefault();
 
-        // Check hardcoded credentials
-        if (email === 'admin@gmail.com' && password === 'admin') {
-            // Store simple user session
-            localStorage.setItem('user', JSON.stringify({ email }));
-            window.location.href = '/src/pages/home_screen/home_screen.html';
-        } else {
-            ErrorMessage.show('Invalid credentials', 'Authentication Error');
-            // Clear form
-            document.getElementById('email').value = '';
-            document.getElementById('password').value = '';
-        }
-    });
-});
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+
+    if (!validateInputs(email, password)) {
+        return;
+    }
+
+    authenticateUser(email, password);
+}
+
+function validateInputs(email, password) {
+    if (!email || !password) {
+        ErrorMessage.show('Please fill in all fields', 'Validation Error');
+        return false;
+    }
+    return true;
+}
+
+function authenticateUser(email, password) {
+    if (email === 'admin@gmail.com' && password === 'admin') {
+        loginSuccess(email);
+    } else {
+        loginFailure();
+    }
+}
+
+function loginSuccess(email) {
+    localStorage.setItem('user', JSON.stringify({ email }));
+    window.location.href = PATHS.HOME;
+}
+
+function loginFailure() {
+    ErrorMessage.show('Invalid credentials', 'Authentication Error');
+    clearForm();
+}
+
+function clearForm() {
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+}
