@@ -1,8 +1,8 @@
 export const PATHS = {
     NOT_FOUND: '../components/404_not_found/404.html',
-    REGISTER_EMPLOYEE: '/src/pages/register_employee/register_employee.html',
-    HOME: '/src/pages/home_screen/home_screen.html',
-    LOGIN: '/src/pages/login/login.html'
+    REGISTER_EMPLOYEE: '../register_employee/register_employee.html',
+    HOME: '../home_screen/home_screen.html',
+    LOGIN: '../login/login.html'
 };
 
 export class Router {
