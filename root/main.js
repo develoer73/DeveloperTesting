@@ -1,5 +1,5 @@
-import { authService } from './src/services/authService.js';
-import { handle404 } from './src/utils/404-handler.js';
+import { authService } from '../employee_management_system/src/services/authService.js';
+import { handle404 } from '../employee_management_system/src/utils/404-handler.js';
 
 // Check authentication status and redirect accordingly
 async function init() {

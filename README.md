@@ -1,2 +1,0 @@
-# DeveloperTesting
-for testing project
