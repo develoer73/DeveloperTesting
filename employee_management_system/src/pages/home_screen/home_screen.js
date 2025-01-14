@@ -1,18 +1,18 @@
 // Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBEwJV5H0IYih8F_qFqkqMxqjIz7saVYbQ",
-    authDomain: "employee-management-syst-c0932.firebaseapp.com",
-    projectId: "employee-management-syst-c0932",
-    storageBucket: "employee-management-syst-c0932.appspot.com",
-    messagingSenderId: "295693046740",
-    appId: "1:295693046740:web:900c8f9189627b3ff6c20f"
+    apiKey: "AIzaSyBm4roBz9LB1gfcbCQdbneZD3FVv2-tQ04",
+    authDomain: "testing-74c11.firebaseapp.com",
+    projectId: "testing-74c11",
+    storageBucket: "testing-74c11.firebasestorage.app",
+    messagingSenderId: "187226654133",
+    appId: "1:187226654133:web:4712daee4988e4ea8505fc",
+    measurementId: "G-MX05Q3154G"
 };
 
 // Initialize Firebase with offline persistence
 try {
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
-    
+
     // Enable offline persistence
     db.enablePersistence()
         .catch((err) => {
@@ -25,7 +25,7 @@ try {
 
     // Add network status listener
     firebase.firestore().enableNetwork().catch(console.error);
-    
+
     let isOnline = true;
     db.collection('employees').onSnapshot(() => {
         isOnline = true;
@@ -64,7 +64,7 @@ try {
             try {
                 const employeesRef = db.collection('employees');
                 const snapshot = await employeesRef.get({ source: isOnline ? 'server' : 'cache' });
-                
+
                 if (snapshot.metadata.fromCache) {
                     console.log('Data came from cache');
                 }
@@ -84,7 +84,7 @@ try {
                 });
 
                 document.getElementById('totalDepartments').textContent = departments.size;
-                
+
                 // Calculate average salary
                 const averageSalary = totalEmployees > 0 ? totalSalary / totalEmployees : 0;
                 document.getElementById('averageSalary').textContent = `$${averageSalary.toFixed(2)}`;
@@ -105,7 +105,7 @@ try {
                     .get({ source: isOnline ? 'server' : 'cache' });
 
                 const employeesList = document.getElementById('employeesList');
-                
+
                 if (snapshot.empty) {
                     employeesList.innerHTML = '<tr><td colspan="4" class="text-center">No employees found</td></tr>';
                     return;
@@ -126,7 +126,7 @@ try {
 
             } catch (error) {
                 console.error('Error loading employees:', error);
-                document.getElementById('employeesList').innerHTML = 
+                document.getElementById('employeesList').innerHTML =
                     '<tr><td colspan="4" class="text-center">Unable to load employees. You may be offline.</td></tr>';
             }
         }
@@ -139,7 +139,7 @@ try {
 
     document.addEventListener('DOMContentLoaded', () => {
         DashboardManager.init();
-        
+
         // Add logout button event listener
         const logoutBtn = document.getElementById('logoutBtn');
         if (logoutBtn) {
@@ -149,13 +149,13 @@ try {
 
     window.handleLogout = DashboardManager.handleLogout;
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const sidebarCollapseBtn = document.getElementById('sidebarCollapseBtn');
         const sidebar = document.getElementById('sidebar');
 
-        sidebarCollapseBtn.addEventListener('click', function() {
+        sidebarCollapseBtn.addEventListener('click', function () {
             sidebar.classList.toggle('collapsed');
-            
+
             // Toggle the chevron icon direction
             const icon = this.querySelector('i');
             if (sidebar.classList.contains('collapsed')) {
