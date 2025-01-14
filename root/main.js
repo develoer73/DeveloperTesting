@@ -1,5 +1,5 @@
-import { authService } from '../employee_management_system/src/services/authService.js';
-import { handle404 } from '../employee_management_system/src/utils/404-handler.js';
+import { authService } from '../src/services/authService.js';
+import { handle404 } from '../src/utils/404-handler.js';
 
 // Check authentication status and redirect accordingly
 async function init() {
@@ -14,7 +14,7 @@ async function init() {
 }
 
 // Add event listener for page load errors
-window.addEventListener('error', function(e) {
+window.addEventListener('error', function (e) {
     if (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT') {
         handle404();
     }
