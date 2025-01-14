@@ -1,0 +1,16 @@
+.error-modal .modal-header {
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.error-modal .btn-close-white {
+    filter: brightness(0) invert(1);
+}
+
+.error-modal .modal-content {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.error-modal .modal-body {
+    padding: 1.5rem;
+}

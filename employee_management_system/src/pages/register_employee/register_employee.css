@@ -1,0 +1,233 @@
+:root {
+    /* Modern Color Scheme */
+    --primary-color: #2563EB;
+    --secondary-color: #3B82F6;
+    --accent-color: #60A5FA;
+    --background-color: #F8FAFC;
+    --card-background: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --border-color: #E2E8F0;
+    --success-color: #10B981;
+    --error-color: #EF4444;
+    --warning-color: #F59E0B;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+}
+
+.card {
+    background: var(--card-background);
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 
+               0 2px 4px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 
+               0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    transition: width 0.3s ease;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 60px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #2c3e50;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    color: white;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.sidebar.collapsed .menu-toggle {
+    transform: rotate(180deg);
+    margin: 0 auto;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar.collapsed .sidebar-brand,
+.sidebar.collapsed .nav-link span {
+    display: none;
+}
+
+.nav-link {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-secondary {
+    border: 2px solid #e2e8f0;
+    color: var(--text-secondary);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+    color: var(--text-primary);
+}
+
+/* Modal Styling */
+.modal-content {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-body i {
+    color: #f59e0b;
+}
+
+.btn-danger {
+    background: #ef4444;
+    border: none;
+    padding: 0.75rem 1.5rem;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Enhanced Image Upload */
+.image-upload-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+.image-upload-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.upload-label {
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.upload-label i {
+    font-size: 1.5rem;
+}
+
+.upload-label span {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.upload-info {
+    text-align: center;
+}
